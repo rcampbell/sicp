@@ -1,10 +1,8 @@
-# sicp
+# Structure and Interpretation of Computer Programs in Clojure
 
-FIXME: write description
+http://mitpress.mit.edu/sicp/full-text/book/book.html
 
-## Usage
 
-FIXME: write
 
 ## License
 
