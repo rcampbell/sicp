@@ -62,6 +62,8 @@
         (>= c a) (cond (>= a b) (sum-of-squares c a)
                        :else    (sum-of-squares c b))))
 
+;; Mine is overly complex. Nuno's is better:
+;; https://github.com/nfma/sicp/blob/master/section1.1/ex1.3.txt
 (defn largest-sum-of-squares' [a b c]
   "Using higher-order fns"
   (let [larger ((comp (partial take 2) reverse sort) [a b c])]
