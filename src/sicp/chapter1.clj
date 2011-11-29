@@ -105,8 +105,11 @@
 
 (def tolerance 0.001)
 
+(defn- delta [x y]
+  (Math/abs (- x y)))
+
 (defn- within-tolerance? [x y]
-  (< (Math/abs (- x y))
+  (< (delta x y)
      tolerance))
 
 (defn- average [x y]
@@ -141,8 +144,8 @@
 ;; Show how it's broken for larger values...
 (binding [improve (fn [old-guess x]
                     (let [new-guess (average old-guess (/ x old-guess))]
-                      (if (< (Math/abs (- x new-guess))
-                             (Math/abs (- x old-guess)))
+                      (if (< (delta x new-guess)
+                             (delta x old-guess))
                         new-guess
                         (throw (RuntimeException.
                                 "New guess is worse!")))))]
@@ -151,8 +154,8 @@
 
 ;; Now fix it
 (binding [good-enough? (fn [old-guess new-guess]
-                         (< (/ (Math/abs (- old-guess
-                                            new-guess))
+                         (< (/ (delta old-guess
+                                      new-guess)
                                old-guess)
                             0.00001)) ; very small percentage change
           sqrt         (fn ([x]
