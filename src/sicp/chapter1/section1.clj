@@ -1,8 +1,5 @@
-(ns sicp.chapter1
+(ns sicp.chapter1.section1
   (:use clojure.test))
-
-;;;; Chapter 1 - Building Abstractions with Procedures
-;;;; http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-9.html#%_chap_1
 
 ;;;; Section 1.1 - The Elements of Programming
 ;;;; http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-10.html#%_sec_1.1
@@ -194,9 +191,4 @@
 
   (is (within-tolerance? (cbrt Integer/MAX_VALUE)
                          (Math/cbrt Integer/MAX_VALUE))))
-
-
-;;;; Section 1.2 - Procedures and the Processes They Generate
-;;;; http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-11.html#%_sec_1.2
-
 
