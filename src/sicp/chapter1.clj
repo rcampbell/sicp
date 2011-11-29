@@ -36,10 +36,10 @@
                                 ; rather than the else symbol
                                 ; found in Scheme
 (is (=     6  (+ 2 (if (> b a) b a))))
-(is (=    16 (* (cond (> a b) a
-                      (< a b) b
-                      :else -1) 
-                (+ a 1))))
+(is (=    16  (* (cond (> a b) a
+                       (< a b) b
+                       :else -1) 
+                 (+ a 1))))
 
 
 ;;; Exercise 1.2
