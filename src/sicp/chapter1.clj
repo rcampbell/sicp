@@ -185,7 +185,7 @@
   
   (defn cbrt
     ([x]
-       (cube-root 1.0 x))
+       (cbrt 1.0 x))
     ([guess x]
        (if (good-enough? guess x)
          guess
