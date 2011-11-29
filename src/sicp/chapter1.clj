@@ -106,8 +106,7 @@
 (def tolerance 0.001)
 
 (defn- within-tolerance? [x y]
-  (< (Math/abs (- x
-                  y))
+  (< (Math/abs (- x y))
      tolerance))
 
 (defn- average [x y]
