@@ -4,3 +4,12 @@ pom.xml
 /classes/
 .lein-failures
 .lein-deps-sum
+
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+.elc
+auto-save-list
+tramp
+.\#*
