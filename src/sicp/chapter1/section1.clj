@@ -90,7 +90,7 @@
 ;;; evaluated due to the short-circuited if conditional.
 
 
-;;; Excercise 1.6
+;;; Exercise 1.6
 ;;; Using new-if the sqrt-iter procedure would recurse forever because
 ;;; new-if is not a special form with special operand evaluation
 ;;; rules. In other words, new-if will eagerly evaluate its operands -
@@ -98,7 +98,7 @@
 ;;; lazy evaluation like the primative if special form.
 
 
-;;; Excercise 1.7
+;;; Exercise 1.7
 
 (def tolerance 0.001)
 
@@ -171,7 +171,7 @@
                            (Math/sqrt large-num)))))
 
 
-;;; Excercise 1.8
+;;; Exercise 1.8
 
 (letfn [(cube [x] (* x x x))        
         (improve [guess x] (/ (+ (/ x
