@@ -68,20 +68,17 @@
        (* 2 (f (- n 2)))
        (* 3 (f (- n 3))))))
 
-(defn f'
+(defn f' [n]
   "iterative process"
-  ([n]
-     (f' n 2 2 1 0))
-  ([n i x y z]
-     (cond (< n 3) n
-           (= n i) x
-           :else (recur n
-                        (inc i)
-                        (+      x
-                           (* 2 y)
-                           (* 3 z))
-                        x
-                        y))))
+  (loop [i 2 x 2 y 1 z 0]
+    (cond (< n 3) n
+          (= n i) x
+          :else (recur (inc i)
+                       (+      x
+                               (* 2 y)
+                               (* 3 z))
+                       x
+                       y))))
 
 
 ;; Exercise 1.12
@@ -95,7 +92,22 @@
 
 ;; Exercise 1.13
 
+(defn bin-coef [n]
+  (if (= n 0) 
+    '(1)
+    (flatten [1  (map + (bin-coef (dec n)) (rest (bin-coef (dec n)))) 1])))
+
 
 ;; Exercise 1.14
 
 
+;; Exercise 1.16
+
+(letfn [(square [x] (* x x))]
+  (defn fast-expt' [b n]
+    (loop [n' n a 1]
+      (cond (zero? n') a
+            (even? n') (recur (/ n' 2)
+                              (square a))
+            :else (recur (dec n')
+                         (* b a))))))
