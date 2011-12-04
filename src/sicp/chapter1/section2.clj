@@ -105,9 +105,9 @@
 
 (letfn [(square [x] (* x x))]
   (defn fast-expt' [b n]
-    (loop [n' n a b]
-      (cond (= n' 1) a
-            (even? n') (recur (/ n' 2)
-                              (square a))
-            :else (recur (dec n')
+    (loop [n n a 1]
+      (cond (zero? n) a
+            (even? n) (recur (/ n 2)
+                             (* b (square a)))
+            :else (recur (dec n)
                          (* b a))))))
