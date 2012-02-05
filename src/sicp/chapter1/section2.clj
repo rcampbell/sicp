@@ -102,12 +102,23 @@
 
 
 ;; Exercise 1.16
+;; Herwig's implementation
 
 (letfn [(square [x] (* x x))]
   (defn fast-expt' [b n]
-    (loop [n n a 1]
+    (loop [a 1 b b n n]
       (cond (zero? n) a
-            (even? n) (recur (/ n 2)
-                             (* b (square a)))
-            :else (recur (dec n)
-                         (* b a))))))
+            (even? n) (recur a
+                             (square b)
+                             (/ n 2))
+            :else (recur (* a b)
+                         b
+                         (dec n))))))
+
+;; Exercise 1.17
+
+(letfn [(double [x] (* x 2))
+        (halve  [x] (/ x 2))]
+  (defn multi [a b]
+    (cond (zero? b) a
+          )))
